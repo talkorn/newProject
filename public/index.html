@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tal's Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="index.css" />
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="nav-home-page"><img src="./assets/imgs/logo.png" alt="logo"
+                        width="70" height="40"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-about-us-page">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="nav-add-pic-page">Add Pic</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <ul class="navbar-nav" id="beforeSignIn">
+
+                            <li class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
+                                <a class="nav-link" href="#" id="nav-signup-page">Signup</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="nav-login-page">Login</a>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav d-none" id="afterSignIn">
+
+                            <li class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
+                                <a class="nav-link" href="#" id="nav-profile-page">profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="nav-logout-page">Logout</a>
+                            </li>
+
+                        </ul>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <main>
+        <div class="container">
+            <!-- home page -->
+            <div class="container">
+                <div id="home-page" class="d-block">
+
+                    <h1> HOME PAGE</h1>
+                    <h2>TAL'S ART GALLERY REPRESENTS THE FINEST IN MODERN ISRAELI ART</h2>
+                    <!-- home page change display buttons -->
+                    <button type="button" class="btn btn-primary" id="cardsDisplayButton"><i
+                            class="bi bi-view-stacked"></i></button>
+                    <button type="button" class="btn btn-primary" id="carouselDisplayButton"><i
+                            class="bi bi-card-image"></i></button>
+                    <button type="button" class="btn btn-primary" id="listDisplayButton"><i
+                            class="bi bi-card-list"></i></button>
+                    <button type="button" class="btn btn-primary" id="buttonSortUp"><i
+                            class="bi bi-arrow-down"></i></button>
+                    <button type="button" class="btn btn-primary" id="buttonSortDown"><i
+                            class="bi bi-arrow-up"></i></button>
+                    <!-- list Part -->
+
+                    <div class="picturesList d-none" id="homePagePictureDiv">
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="collapse navbar-collapse nav justify-content-end"" id=" navbarSupportedContent">
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search"
+                                        aria-label="Search" id="searchInput">
+                                    <button id="searchButton" class="btn btn-outline-secondary btn-light"
+                                        type="button">Search</button>
+                                </form>
+                            </div>
+                        </nav>
+                        <ul class="list-group " id="home-page-pictures-list">
+                        </ul>
+                    </div>
+                    <!-- cards Part -->
+                    <div id="home-page-pictures-cards" class="d-none row row-cols-1 row-cols-md-4 g-3 ">
+                    </div>
+                    <!-- listPopUP part -->
+                    <div id="cardpopup" class="popup-wrapper d-flex justify-content-center align-items-center">
+
+                    </div>
+                    <!-- carousel part -->
+
+                    <div class="containerCarousel ">
+                        <div id="carousel">
+                            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div id="home-page-pictures-carousel" class="carou">
+
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- about us -->
+            <div id="about-us-page" class="d-none">
+                <h1>ABOUT US</h1>
+            </div>
+
+            <!-- add pic -->
+            <div id="add-pic-page" class="d-none ">
+                <h1 id="addPicTytle">ADD PIC</h1>
+                <h1 Id="editPicTytle"> EDIT</h1>
+                <form>
+                    <!-- show Add pic  -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div id="showPic"></div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- imgUrl -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="imgUrl">Add Img Url</label>
+                        <input type="text" class="form-control" id="imgUrlFromAddPic" />
+                        <label class="form-label" for="imgUrl"><span style="color:red"
+                                id="validImgUrlAddPic"></span></label>
+
+                    </div>
+                    <!-- Alt -->
+                    <div class="form-outline mb-4 ">
+                        <label class="form-label" for="alt">Add Tittle</label>
+                        <input type="text" class="form-control" id="AltFromAddPic" />
+
+                    </div>
+                    <!-- Credit input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="credit">Add Credit</label>
+                        <input type="text" class="form-control" id="picCreditFromAddPict" />
+
+                    </div>
+
+                    <!-- Price input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="price">Add Price</label>
+                        <input type="number" class="form-control" id="picPriceFromAddPic" />
+                    </div>
+
+                    <!-- Descrption input -->
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="description">Add Picture Description</label>
+                        <textarea class="form-control" rows="4" id="picDescrptionFromAddPic"></textarea>
+
+                    </div>
+
+
+                    <!-- Submit button -->
+                    <button type="button" class="btn btn-primary btn-block mb-4" id=" AddPicBotton" disabled="true"
+                        ;>Add Picture</button>
+                </form>
+            </div>
+
+
+
+            <!-- signup -->
+            <div id="signup-page" class="d-none">
+                <h1>SIGNUP</h1>
+                <div>
+                    <form>
+                        <!--  first and last names -->
+                        <label class="form-label fw-bold" for="name" id="firstName">Name</label>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="firstName">First name<span
+                                            style="color:red">*</span></label>
+                                    <input type="text" id="name-from-signUp-page" class="form-control" />
+                                    <label class="form-label" for="firstName"><span style="color:red"
+                                            id="validationFirstName"></span></label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="lastName">Last
+                                        name<span style="color:red">*</span></label>
+                                    <input type="text" id="lastName-from-signUp-page" class="form-control" />
+                                    <label class="form-label" for="firstName"><span style="color:red"
+                                            id="validationLastName"></span></label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <label class="form-label fw-bold" for="form3Example1">Address</label>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example1">State</label>
+                                    <input type="text" class="form-control" id="stateFromSign" />
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example2" id="">Country</label>
+                                    <input type="text" class="form-control" id="countryFromSign">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example2" id="">City</label>
+                                    <input type="text" class="form-control" id="cityFromSign">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example1" id="">Street</label>
+                                    <input type="text" id="streetFromSign" class="form-control" />
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example2">House Number</label>
+                                    <input type="number" id="houseFromSign" class="form-control" />
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example2">Zip Code</label>
+                                    <input type="number" id="zipFromSign" class="form-control" />
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- contact -->
+                        <label class="form-label fw-bold" for="form3Example1">Means of Contact</label>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example1">Email<span
+                                            style="color:red">*</span></label>
+                                    <input id="email-from-signUp-page" type="text" id="email" class="form-control" />
+                                    <label class="form-label" for="email"><span style="color:red"
+                                            id="validationEmail"></span></label>
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form3Example2">Phone</label>
+                                    <input type="number" id="numberFromSign" class="form-control" />
+
+                                </div>
+                            </div>
+                            <label class="form-label fw-bold" for="form3Example1">Security</label>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">Password<span
+                                                style="color:red">*</span></label>
+                                        <input type="password" id="Password-from-signUp-page" class="form-control" />
+                                        <label class="form-label" for="email"><span style="color:red"
+                                                id="validationPassword"></span></label>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2">Re-enter Password<span
+                                                style="color:red">*</span></label>
+                                        <input type="password" id="RePassword-from-signUp-page" class="form-control" />
+                                        <label class="form-label" for="email"><span style="color:red"
+                                                id="validationRePassword"></span></label>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Checkbox -->
+                            <div class="form-check d-flex justify-content-center mb-4">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="AdminCheckBox" />
+                                <label class="form-check-label" for="AdminCheckBox">
+                                    business Client
+                                </label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="button" class="btn btn-primary btn-block mb-4" id="signUpBotton"
+                                disabled="true">Sign
+                                up</button>
+                            <button type="submit" class="btn btn-danger btn-block mb-4">Cancel</button>
+
+
+                        </div>
+                </div>
+            </div>
+
+            <!-- login -->
+            <div id="login-page" class="d-none">
+                <h1>LOGIN</h1>
+                <form>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example1">Email address</label>
+                        <input type="email" class="form-control" id="emailFromLogin" />
+
+                        <label class="form-label" for="email"><span style="color:red"
+                                id="validationEmailLogin"></span></label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example2">Password</label>
+                        <input type="password" id="passwordFromLogin" class="form-control" />
+
+                        <label class="form-label" for="email"><span style="color:red"
+                                id="validationPasswordLogin"></span></label>
+                    </div>
+
+
+
+                    <!-- Submit button -->
+                    <button type="button" class="btn btn-primary btn-block mb-4" id="LoginBotton" disabled="true">Sign
+                        in</button>
+
+
+                </form>
+            </div>
+
+
+
+
+
+            <!-- profile -->
+            <div id="profileDiv">
+                <div id="profile-page" class="d-none">
+                    <h1>Profile</h1>
+
+                    <div>
+                        <form>
+                            <!--  first and last names -->
+                            <label class="form-label fw-bold" for="form3Example1" id="firstName">Name</label>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName">First name<span
+                                                style="color:red">*</span></label>
+                                        <input type="text" id="firstNameFromProfile" class="form-control" />
+                                        <label class="form-label" for="firstName"><span style="color:red"
+                                                id="validationFirstNameFromProfile"></span></label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="lastName">Last
+                                            name<span style="color:red">*</span></label>
+                                        <input type="text" id="lastNameFromProfile" class="form-control" />
+                                        <label class="form-label" for="lastName"><span style="color:red"
+                                                id="validationLastNameFromProfile"></span></label>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="form-label fw-bold" for="form3Example1">Address</label>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">State</label>
+                                        <input type="text" class="form-control" id="stateFromProfile" />
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2" id="">Country</label>
+                                        <input type="text" class="form-control" id="countryFromProfile">
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2" id="">City</label>
+                                        <input type="text" class="form-control" id="cityFromProfile">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1" id="">Street</label>
+                                        <input type="text" id="streetFromProfile" class="form-control" />
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2">House Number</label>
+                                        <input type="number" id="houseFromProfile" class="form-control" />
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2">Zip Code</label>
+                                        <input type="number" id="zipFromProfile" class="form-control" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- contact -->
+                            <label class="form-label fw-bold" for="form3Example1">Means of Contact</label>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">Email<span
+                                                style="color:red">*</span></label>
+                                        <input id="emailFromProfile" type="text" id="email" class="form-control" />
+                                        <label class="form-label" for="email"><span style="color:red"
+                                                id="validationEmailFromProfile"></span></label>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example2">Phone</label>
+                                        <input type="number" id="numberFromProfile" class="form-control" />
+
+                                    </div>
+                                </div>
+                                <label class="form-label fw-bold" for="form3Example1">Security</label>
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example1">Password<span
+                                                    style="color:red">*</span></label>
+                                            <input type="password" id="PasswordFromProfile" class="form-control" />
+                                            <label class="form-label" for="email"><span style="color:red"
+                                                    id="validationPasswordFromProfile"></span></label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example2">Re-enter Password<span
+                                                    style="color:red">*</span></label>
+                                            <input type="password" id="RePasswordFromProfile" class="form-control" />
+                                            <label class="form-label" for="email"><span style="color:red"
+                                                    id="validationRePasswordFromPassword"></span></label>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Checkbox -->
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                    <input class="form-check-input me-2" type="checkbox" value=""
+                                        id="AdminCheckBoxFromProfile" />
+                                    <label class="form-check-label" for="AdminCheckBox">
+                                        business Client
+                                    </label>
+                                </div>
+
+
+                                <!-- Submit button -->
+                                <div id="goodjob" style="width:44rem; height:5rem"" class=" mx-auto bg-info m-2
+                                    text-center d-none d-flex justify-content-center">
+                                    <h1>saved</h1>
+                                </div>
+                                <button type=" button" class="btn btn-primary btn-block mb-4" id="profileBotton"
+                                    disabled="true">Sign
+                                    up</button>
+                                <button type="submit" class="btn btn-danger btn-block mb-4">Cancel</button>
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- logout -->
+            <div id="logout-page" class="d-none">
+                <h1>Logout</h1>
+            </div>
+        </div>
+
+    </main>
+    <footer> </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="../src/app.js" type="module"></script>
+</body>
+
+</html>

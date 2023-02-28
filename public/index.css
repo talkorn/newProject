@@ -1,0 +1,10 @@
+.containerCarousel {
+  width: 80rem;
+
+  overflow: hidden;
+}
+#carousel {
+  width: 90%;
+  height: auto;
+  align-items: center;
+}
