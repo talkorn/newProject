@@ -18,11 +18,6 @@ window.addEventListener("load", () => {
 
     picturesArr = originalPropertiesArr.filter((item) => {
       let reg = regex.test(item.alt);
-      console.log(
-        "🚀 ~ file: List.js:19 ~ picturesArr=originalPropertiesArr.filter ~ reg:",
-        reg
-      );
-
       return reg;
     });
     listDiv.innerHTML = "";
@@ -33,13 +28,16 @@ window.addEventListener("load", () => {
 
 const initialPicturesList = (picturesArrFromHomePage) => {
   picturesArr = picturesArrFromHomePage;
+  console.log(
+    "🚀 ~ file: List.js:36 ~ initialPicturesList ~ picturesArr:",
+    picturesArr
+  );
   listDiv = document.getElementById("home-page-pictures-list");
   isAdmin = checkIfAdmin();
-  console.log("🚀 ~ file: List.js:37 ~ initialPicturesList ~ isAdmin:");
   createList();
 };
 
-const createItem = (id, imgUrl, alt, credit, price) => {
+const createItem = (id, imgUrl, alt, credit, price, date) => {
   adminBtns = ` <button type="button" class="btn btn-primary w-100" id="propertyListEditBtn-${id}">
                     <i class="bi bi-pen-fill"></i> Edit
                 </button>
@@ -55,8 +53,9 @@ const createItem = (id, imgUrl, alt, credit, price) => {
             <div class="col-lg-8">
                 <div class="card-body">
                     <h5 class="card-title">${alt}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">${credit}</h6>
-                    <p class="card-text">${price}
+                    <h6 class="card-subtitle mb-2 text-muted">Photografed by: ${credit}</h6>
+                    <p class="card-text">Price: ${price}
+                    <p class="card-text">Date: ${date}
                     </p>
 
                 </div>

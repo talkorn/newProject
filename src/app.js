@@ -1,5 +1,6 @@
 import PAGES from "./models/pageModel.js";
 import { pageChange } from "./routes/router.js";
+import emptyAddPic from "./pages/addPic.js";
 import "./initialData/initialData.js";
 import "./pages/homePage.js";
 import "./pages/signUp.js";
@@ -7,6 +8,7 @@ import "./pages/login.js";
 import "./pages/profile.js";
 import "./pages/addPic.js";
 import "./utils/edit.js";
+
 let afterSignIn = document.getElementById("afterSignIn");
 let beforeSignIn = document.getElementById("beforeSignIn");
 window.addEventListener("load", () => {
@@ -28,6 +30,7 @@ document.getElementById("nav-about-us-page").addEventListener("click", () => {
 });
 document.getElementById("nav-add-pic-page").addEventListener("click", () => {
   pageChange(PAGES.ADDPIC);
+  emptyAddPic();
 });
 document.getElementById("nav-signup-page").addEventListener("click", () => {
   pageChange(PAGES.SIGNUP);

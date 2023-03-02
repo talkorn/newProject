@@ -1,11 +1,14 @@
 import checkIfAdmin from "../utils/checkIfAdmin.js";
 import initialHomePage from "../pages/homePage.js";
+import startEdit from "../utils/edit.js";
 let picturesArr;
 let cardsDiv;
 let popupCardDiv;
 let adminBtns;
 let isAdmin;
 let btnDeleteBtn;
+let btnEditeBtn;
+let btnIdChange;
 const initialPicturesCards = (picturesArrFromHomePage) => {
   console.log("cards");
   picturesArr = picturesArrFromHomePage;
@@ -77,9 +80,10 @@ const createpopUp = () => {
 
     <a href="#" class="btn btn-dark" id="popupClose"><i class="bi bi-x-circle-fill"></i> close</a>
       ${isAdmin ? adminBtns : ""}`;
-
+        let y = `picsCardsEditBtn-${picture.id}`;
         let x = `picsCardsDeleteBtn-${picture.id}`;
         btnDeleteBtn = document.getElementById(x);
+        btnEditeBtn = document.getElementById(y);
         console.log(
           "🚀 ~ file: cards.js:57 ~ document.getElementById ~ btnDeleteBtn:",
           btnDeleteBtn
@@ -92,7 +96,9 @@ const createpopUp = () => {
         popupCardDiv.classList.add("d-none");
       });
       /*  btnDeleteBtn = document.getElementById(`picsCardsEditBtn-${picture.id}`); */
-
+      btnEditeBtn.addEventListener("click", () => {
+        startEdit(picture.id, picturesArr);
+      });
       if (btnDeleteBtn !== null) {
         console.log(btnDeleteBtn);
         btnDeleteBtn.addEventListener("click", () => {

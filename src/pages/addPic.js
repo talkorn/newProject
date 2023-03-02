@@ -1,10 +1,10 @@
 import Pictures from "../models/pictures.js";
 import validateFunction from "../validation/validate.js";
 import checkIfAdmin from "../utils/checkIfAdmin.js";
-import initialHomePage from "../pages/homePage.js";
-let picDiv = document.getElementById("picDiv");
+/* import initialHomePage from "../pages/homePage.js";
+let picDiv = document.getElementById("picDiv"); */
 let addPicPageNav = document.getElementById("nav-add-pic-page");
-let showPicFromAddPic = document.getElementById("showPicFromAddPic");
+/* let showPicFromAddPic = document.getElementById("showPicFromAddPic"); */
 let imgUrlFromAddPic = document.getElementById("imgUrlFromAddPic");
 let AltFromAddPic = document.getElementById("AltFromAddPic");
 let picCreditFromAddPict = document.getElementById("picCreditFromAddPict");
@@ -13,15 +13,39 @@ let validImgUrlAddPic = document.getElementById("validImgUrlAddPic");
 let picDescrptionFromAddPic = document.getElementById(
   "picDescrptionFromAddPic"
 );
+let picturesArr;
+let showPicEdit = document.getElementById("showPic");
 let isAdmin = false;
 let showPic = document.getElementById("showPic");
 let AddPicBotton = document.getElementById(" AddPicBotton");
 let imgRegex = new RegExp(
   "^((http|https)://)[-a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)$"
 );
+let editPicTytle = document.getElementById("editPicTytle");
+let EditPicBotton = document.getElementById("EditPicBotton");
+let showAddPic = document.getElementById("addPicTytle");
+const emptyAddPic = () => {
+  showAddPic.classList.remove("d-none");
+  AddPicBotton.classList.add("d-block");
+  EditPicBotton.classList.add("d-none");
+  editPicTytle.classList.add("d-none");
+  showPicEdit.innerHTML = `
+    <img id="showPicFromAddPic" src="./assets/imgs/emptyPicture.jpg" style="width: 23vw;" class=" card-img-top" alt=""></img>`;
+  imgUrlFromAddPic.value = "";
+  AltFromAddPic.value = "";
+  picCreditFromAddPict.value = "";
+  picPriceFromAddPic.value = "";
+  picDescrptionFromAddPic.value = "";
+};
+
 let btnok = false;
 window.addEventListener("load", () => {
   isAdmin = checkIfAdmin();
+  picturesArr = localStorage.getItem("pics");
+  console.log(
+    "🚀 ~ file: addPic.js:45 ~ window.addEventListener ~ picturesArr:",
+    picturesArr
+  );
   console.log(
     "🚀 ~ file: addPic.js:25 ~ window.addEventListener ~ isAdmin:",
     isAdmin
@@ -30,11 +54,9 @@ window.addEventListener("load", () => {
     addPicPageNav.classList.add("d-none");
   }
 });
-let picturesArr = localStorage.getItem("pics");
+
 showPic.innerHTML = `
     <img id="showPicFromAddPic" src="./assets/imgs/emptyPicture.jpg" style="width: 23vw;" class=" card-img-top" alt=""></img>`;
-
-/* ./assets/imgs/emptyPicture.jpg */
 console.log("3");
 document.getElementById("imgUrlFromAddPic").addEventListener("input", () => {
   console.log(imgUrlFromAddPic.value);
@@ -80,8 +102,12 @@ AddPicBotton.addEventListener("click", () => {
     picPriceFromAddPic.value,
     picDescrptionFromAddPic.value
   );
-
+  console.log(
+    "🚀 ~ file: addPic.js:45 ~ window.addEventListener ~ picturesArr:",
+    picturesArr
+  );
   if (!picturesArr) {
+    console.log("????????????", picturesArr);
     picturesArr = newPic;
     localStorage.setItem("pics", JSON.stringify(picturesArr));
     localStorage.setItem("nextId", JSON.stringify(nextId));
@@ -94,7 +120,7 @@ AddPicBotton.addEventListener("click", () => {
     picturesArr = [...picturesArr, newPic];
     localStorage.setItem("pics", JSON.stringify(picturesArr));
     localStorage.setItem("nextId", JSON.stringify(nextId));
-
     location.reload();
   }
 });
+export default emptyAddPic;
