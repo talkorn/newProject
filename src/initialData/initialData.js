@@ -9,7 +9,7 @@ const createData = () => {
     new Pictures(
       id++,
       "./assets/imgs/pic1.jpeg",
-      `A beautiful waterfall in north of Israel`,
+      `A waterfall in north of Israel`,
       "Korn Family",
       5000,
       "A beautiful picture of a waterfall in Israel captures the natural wonder of the country's landscapes. The rushing water cascades down a series of rocks, creating a stunning display of movement and sound. The surrounding greenery and rock formations add to the breathtaking scene.",
@@ -18,7 +18,7 @@ const createData = () => {
     new Pictures(
       id++,
       "./assets/imgs/pic2.jpeg",
-      `The Church of the Transfiguration located on Mount Tabor in Israel.`,
+      `The Church of the Transfiguration`,
       "Korn Family",
       3450,
       "The picture of the Church of Mount Tabor in Israel from a distance captures the grandeur of the structure set against the surrounding landscape. The church's towering dome and bell tower stand out prominently against the blue sky. The rolling hills in the distance create a picturesque backdrop",
@@ -28,7 +28,7 @@ const createData = () => {
     new Pictures(
       id++,
       "./assets/imgs/pic3.jpeg",
-      `A View Of Northern Israel From Mount Tabor`,
+      `A View Of From Mount Tabor`,
       "Korn Family",
       1900,
       "The picture from Mount Tabor in Israel offers a stunning panoramic view of the surrounding landscape. The vast greenery stretches out as far as the eye can see, with rolling hills and valleys in the distance. The sky is clear and blue, providing a beautiful contrast to the lush scenery.",
@@ -37,7 +37,7 @@ const createData = () => {
     new Pictures(
       id++,
       "./assets/imgs/pic4.jpeg",
-      `A magnifique day in Les Arcs France`,
+      `A magnifique day in Les Arcs`,
       "Korn Family",
       7300,
       "The picture of a snow-covered mountain in France captures the pristine beauty of winter landscapes. The mountain is blanketed in a thick layer of snow, with only a few trees peeking through. The clear blue sky provides a stunning contrast to the pure white snow.",

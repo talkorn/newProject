@@ -211,6 +211,7 @@ signUpBotton.addEventListener(
           validationEmail.innerHTML = "Email already exists";
           validationEmail.classList.remove("d-none");
           emailbtnValid = false;
+          signUpBotton.disabled = true;
           return;
         }
       }
@@ -220,6 +221,6 @@ signUpBotton.addEventListener(
     }
     pageChange(PAGES.LOGIN);
     /*   location.reload(); */
-  },
-  { once: true }
+  }
+  /* { once: true } */
 );

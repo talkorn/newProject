@@ -86,7 +86,8 @@ const createList = () => {
       picture.imgUrl,
       picture.alt,
       picture.credit,
-      picture.price
+      picture.price,
+      picture.date
     );
   }
   listDiv.innerHTML = innerList;

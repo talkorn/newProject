@@ -16,8 +16,11 @@ let password1;
 let email1;
 let passworsbtnValid = false;
 let exsist = false;
-
+let users;
 emailFromLogin.addEventListener("input", () => {
+  users = localStorage.getItem("users");
+
+  users = JSON.parse(users);
   checkEmail(emailFromLogin, validationEmailLogin);
   if (btnsValid) {
     emailbtnValid = true;
@@ -62,9 +65,8 @@ const checkPassword = (thePassword, err) => {
   }
 };
 let existUser;
-let users = localStorage.getItem("users");
 
-users = JSON.parse(users);
+console.log("🚀 ~ file: login.js:68 ~ users:", users);
 const checkIfEmailAndPasswordExist = () => {
   if (!users) {
     return;

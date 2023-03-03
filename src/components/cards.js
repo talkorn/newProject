@@ -43,7 +43,8 @@ const createCards = () => {
       picture.alt,
       picture.credit,
       picture.price,
-      picture.description
+      picture.description,
+      picture.date
     );
     cardsDiv.innerHTML = innerCard;
   }
@@ -74,7 +75,9 @@ const createpopUp = () => {
     <h5 class="card-title">${picture.alt}</h5>
     <p class="card-text">${picture.credit}</p>
     <p class="card-text">${picture.price}</p>
+       <p class="card-text">Date: ${picture.date}
     <p class="card-text">${picture.description}</p>
+  
     
     <div class="flex-direction: column">
 

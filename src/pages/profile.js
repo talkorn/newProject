@@ -16,6 +16,9 @@ let emailFromProfile = document.getElementById("emailFromProfile");
 let validationEmailFromProfile = document.getElementById(
   "validationEmailFromProfile"
 );
+let cancleButtonProfilePage = document.getElementById(
+  "cancleButtonProfilePage"
+);
 let PasswordFromProfile = document.getElementById("PasswordFromProfile");
 let validationPasswordFromProfile = document.getElementById(
   "validationPasswordFromProfile"
@@ -51,6 +54,9 @@ window.addEventListener("load", () => {
   if (existUser) {
     existUser = JSON.parse(existUser);
   }
+  cancleButtonProfilePage.addEventListener("click", () => {
+    pageChange(PAGES.HOME);
+  });
 
   if (users && existUser) {
     firstNameFromProfile.value = existUser.firstName;

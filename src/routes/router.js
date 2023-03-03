@@ -7,6 +7,7 @@ const SIGNUPLINK = document.getElementById(PAGES.SIGNUP);
 const LOGINLINK = document.getElementById(PAGES.LOGIN);
 const PROFILELINK = document.getElementById(PAGES.PROFILE);
 const LOGOUTLINK = document.getElementById(PAGES.LOGOUT);
+const PAGENOTFOUND = document.getElementById(PAGES.NOTFAUND);
 const pageChange = (pagetodisplay) => {
   HOMEPAGELINK.classList.remove("d-block");
   ABOUTUSLINK.classList.remove("d-block");
@@ -15,6 +16,7 @@ const pageChange = (pagetodisplay) => {
   LOGINLINK.classList.remove("d-block");
   PROFILELINK.classList.remove("d-block");
   LOGOUTLINK.classList.remove("d-block");
+  PAGENOTFOUND.classList.remove("d-block");
 
   HOMEPAGELINK.classList.add("d-none");
   ABOUTUSLINK.classList.add("d-none");
@@ -23,6 +25,7 @@ const pageChange = (pagetodisplay) => {
   LOGINLINK.classList.add("d-none");
   PROFILELINK.classList.add("d-none");
   LOGOUTLINK.classList.add("d-none");
+  PAGENOTFOUND.classList.add("d-none");
 
   switch (pagetodisplay) {
     case PAGES.HOME:
@@ -55,8 +58,11 @@ const pageChange = (pagetodisplay) => {
       document.getElementById("beforeSignIn").classList.remove("d-none");
       document.getElementById("afterSignIn").classList.add("d-none");
       location.reload();
-    /* LOGOUTLINK.classList.remove("d-none");
-      LOGOUTLINK.classList.add("d-block"); */
+      break;
+    default:
+      PAGE404PAGELINK.classList.remove("d-none");
+      PAGE404PAGELINK.classList.add("d-block");
+      break;
   }
 };
 

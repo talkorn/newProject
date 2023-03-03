@@ -1,6 +1,8 @@
 import Pictures from "../models/pictures.js";
 import validateFunction from "../validation/validate.js";
 import checkIfAdmin from "../utils/checkIfAdmin.js";
+import { pageChange } from "../routes/router.js";
+import PAGES from "../models/pageModel.js";
 /* import initialHomePage from "../pages/homePage.js";
 let picDiv = document.getElementById("picDiv"); */
 let addPicPageNav = document.getElementById("nav-add-pic-page");
@@ -13,6 +15,9 @@ let validImgUrlAddPic = document.getElementById("validImgUrlAddPic");
 let picDescrptionFromAddPic = document.getElementById(
   "picDescrptionFromAddPic"
 );
+let canceleButtonAddpicEdit = document.getElementById(
+  "canceleButtonAddpicEdit"
+);
 let picturesArr;
 let showPicEdit = document.getElementById("showPic");
 let isAdmin = false;
@@ -24,8 +29,10 @@ let imgRegex = new RegExp(
 let editPicTytle = document.getElementById("editPicTytle");
 let EditPicBotton = document.getElementById("EditPicBotton");
 let showAddPic = document.getElementById("addPicTytle");
+const d = new Date();
+const y = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
+
 const emptyAddPic = () => {
-  showAddPic.classList.remove("d-none");
   AddPicBotton.classList.add("d-block");
   EditPicBotton.classList.add("d-none");
   editPicTytle.classList.add("d-none");
@@ -42,19 +49,14 @@ let btnok = false;
 window.addEventListener("load", () => {
   isAdmin = checkIfAdmin();
   picturesArr = localStorage.getItem("pics");
-  console.log(
-    "🚀 ~ file: addPic.js:45 ~ window.addEventListener ~ picturesArr:",
-    picturesArr
-  );
-  console.log(
-    "🚀 ~ file: addPic.js:25 ~ window.addEventListener ~ isAdmin:",
-    isAdmin
-  );
+  showAddPic.classList.remove("d-none");
   if (!isAdmin) {
     addPicPageNav.classList.add("d-none");
   }
 });
-
+canceleButtonAddpicEdit.addEventListener("click", () => {
+  pageChange(PAGES.HOME);
+});
 showPic.innerHTML = `
     <img id="showPicFromAddPic" src="./assets/imgs/emptyPicture.jpg" style="width: 23vw;" class=" card-img-top" alt=""></img>`;
 console.log("3");
@@ -100,7 +102,8 @@ AddPicBotton.addEventListener("click", () => {
     AltFromAddPic.value,
     picCreditFromAddPict.value,
     picPriceFromAddPic.value,
-    picDescrptionFromAddPic.value
+    picDescrptionFromAddPic.value,
+    y
   );
   console.log(
     "🚀 ~ file: addPic.js:45 ~ window.addEventListener ~ picturesArr:",

@@ -7,5 +7,6 @@ const PAGES = {
   LOGIN: "login-page",
   PROFILE: "profile-page",
   LOGOUT: "logout-page",
+  NOTFAUND: "page-not-found-page",
 };
 export default PAGES;
