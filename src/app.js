@@ -7,6 +7,7 @@ import "./pages/signUp.js";
 import "./pages/login.js";
 import "./pages/profile.js";
 import "./pages/addPic.js";
+import "./pages/favoritePics.js";
 import "./utils/edit.js";
 
 let afterSignIn = document.getElementById("afterSignIn");
@@ -43,4 +44,7 @@ document.getElementById("nav-profile-page").addEventListener("click", () => {
 });
 document.getElementById("nav-logout-page").addEventListener("click", () => {
   pageChange(PAGES.LOGOUT);
+});
+document.getElementById("nav-favorite-page").addEventListener("click", () => {
+  pageChange(PAGES.FAVORITE);
 });

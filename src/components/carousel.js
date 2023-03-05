@@ -2,9 +2,12 @@ let picturesArr;
 let carouselDiv;
 
 const initialPicturesCarousel = (picturesArrFromHomePage) => {
-  console.log("carousel");
   picturesArr = picturesArrFromHomePage;
   carouselDiv = document.getElementById("home-page-pictures-carousel");
+  console.log(
+    "🚀 ~ file: carousel.js:7 ~ initialPicturesCarousel ~ carouselDiv:",
+    carouselDiv.value
+  );
   createCarousel();
 };
 
@@ -39,19 +42,21 @@ const checkFirstId = () => {
 };
 
 const createCarousel = () => {
+  let innerCard = "";
   /* picturesArr = JSON.parse(localStorage.getItem("PICS")); */
   checkFirstId();
   if (!picturesArr) {
     return;
   }
   for (let pictures of picturesArr) {
-    carouselDiv.innerHTML += createItem(
+    innerCard += createItem(
       pictures.id,
       pictures.imgUrl,
       pictures.alt,
       pictures.credit,
       pictures.price
     );
+    carouselDiv.innerHTML = innerCard;
   }
 };
 

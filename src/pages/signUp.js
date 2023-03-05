@@ -4,6 +4,8 @@ import validPassword from "../validation/passwordValid.js";
 import User from "../models/users.js";
 import { pageChange } from "../routes/router.js";
 import PAGES from "../models/pageModel.js";
+import validNumbers from "../validation/validNumbers.js";
+import validString from "../validation/validationString.js";
 let name;
 let firstNamebtnValid = false;
 let lastNamebtnValid = false;
@@ -34,9 +36,70 @@ let streetFromSign = document.getElementById("streetFromSign");
 let houseFromSign = document.getElementById("houseFromSign");
 let zipFromSign = document.getElementById("zipFromSign");
 let numberFromSign = document.getElementById("numberFromSign");
+let validationHouseNum = document.getElementById("validationHouseNum");
+let validationZipCode = document.getElementById("validationZipCode");
+let validationPhoneNumber = document.getElementById("validationPhoneNumber");
+let validationState = document.getElementById("validationState");
+let validationCountry = document.getElementById("validationCountry");
+let validationCity = document.getElementById("validationCity");
+let validationStreet = document.getElementById("validationStreet");
+streetFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", streetFromSign.value);
+  CheckString(streetFromSign.value, validationStreet);
+});
+cityFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", cityFromSign.value);
+  CheckString(cityFromSign.value, validationCity);
+});
+countryFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", countryFromSign.value);
+  CheckString(countryFromSign.value, validationCountry);
+});
+stateFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", stateFromSign.value);
+  CheckString(stateFromSign.value, validationState);
+});
+/* check that all the input are numbers */
+numberFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", numberFromSign.value);
+  CheckNumber(numberFromSign.value, validationPhoneNumber);
+});
+zipFromSign.addEventListener("input", () => {
+  console.log("houseFromSign", zipFromSign.value);
+  CheckNumber(zipFromSign.value, validationZipCode);
+});
+houseFromSign.addEventListener("input", () => {
+  CheckNumber(houseFromSign.value, validationHouseNum);
+});
+
+const CheckNumber = (theNumber, err) => {
+  let NumberFromSignin = validNumbers(theNumber);
+
+  if (!NumberFromSignin.length) {
+    err.classList.add("d-none");
+    return (btnsValid = true);
+    /* the button can work */
+  } else {
+    /* error */
+    err.innerHTML = NumberFromSignin;
+    return (btnsValid = false);
+  }
+};
+const CheckString = (theNumber, err) => {
+  let stringFromSignin = validString(theNumber);
+
+  if (!stringFromSignin.length) {
+    err.classList.add("d-none");
+    return (btnsValid = true);
+    /* the button can work */
+  } else {
+    /* error */
+    err.innerHTML = stringFromSignin;
+    return (btnsValid = false);
+  }
+};
 
 /* check if first and last name are valid when you change the input */
-
 firstName.addEventListener("input", () => {
   CheckName(firstName, validationFirstName);
   if (btnsValid) {

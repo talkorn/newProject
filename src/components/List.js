@@ -76,6 +76,10 @@ const createItem = (id, imgUrl, alt, credit, price, date) => {
 
 const createList = () => {
   let innerList = "";
+  //clear event listeners for delete btns
+  clearEventListeners("propertyListDeleteBtn", handleDeleteBtnClick);
+  //clear event listeners for edit btns
+  clearEventListeners("propertyListEditBtn", handleEditBtnClick);
   /* picturesArr = JSON.parse(localStorage.getItem("PICS")); */
   if (!picturesArr) {
     return;

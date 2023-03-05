@@ -8,5 +8,6 @@ const PAGES = {
   PROFILE: "profile-page",
   LOGOUT: "logout-page",
   NOTFAUND: "page-not-found-page",
+  FAVORITE: "favorite-page",
 };
 export default PAGES;

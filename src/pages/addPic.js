@@ -34,6 +34,7 @@ const y = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 
 const emptyAddPic = () => {
   AddPicBotton.classList.add("d-block");
+  AddPicBotton.classList.remove("d-none");
   EditPicBotton.classList.add("d-none");
   editPicTytle.classList.add("d-none");
   showPicEdit.innerHTML = `
@@ -44,16 +45,16 @@ const emptyAddPic = () => {
   picPriceFromAddPic.value = "";
   picDescrptionFromAddPic.value = "";
 };
-
+picturesArr = localStorage.getItem("pics");
 let btnok = false;
-window.addEventListener("load", () => {
-  isAdmin = checkIfAdmin();
-  picturesArr = localStorage.getItem("pics");
+/* window.addEventListener("load", () => {
+   isAdmin = checkIfAdmin();
+  
   showAddPic.classList.remove("d-none");
   if (!isAdmin) {
-    addPicPageNav.classList.add("d-none");
+    addPicPageNav.classList.add("d-none"); 
   }
-});
+}); */
 canceleButtonAddpicEdit.addEventListener("click", () => {
   pageChange(PAGES.HOME);
 });

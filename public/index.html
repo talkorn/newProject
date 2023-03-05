@@ -34,6 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="nav-add-pic-page">Add Pic</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="nav-favorite-page">Favorite</a>
+                        </li>
 
                     </ul>
                     <form class="d-flex" role="search">
@@ -310,6 +313,8 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="State">State</label>
                                     <input type="text" class="form-control" id="stateFromSign" />
+                                    <label class="form-label" for="state"><span style="color:red"
+                                            id="validationState"></span></label>
 
                                 </div>
                             </div>
@@ -317,13 +322,16 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="country" id="">Country</label>
                                     <input type="text" class="form-control" id="countryFromSign">
+                                    <label class="form-label" for="country"><span style="color:red"
+                                            id="validationCountry"></span></label>
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
                                     <label class="form-label" for="city" id="">City</label>
-                                    <input type="text" class="form-control" id="cityFromSign">
+                                    <input type="text" class="form-control" id="cityFromSign"><label class="form-label"
+                                        for="city"><span style="color:red" id="validationCity"></span></label>
 
                                 </div>
                             </div>
@@ -332,7 +340,9 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <label class="form-label" for="street" id="">Street</label>
-                                    <input type="text" id="streetFromSign" class="form-control" />
+                                    <input type="text" id="streetFromSign" class="form-control" /><label
+                                        class="form-label" for="street"><span style="color:red"
+                                            id="validationStreet"></span></label>
 
                                 </div>
                             </div>
@@ -340,13 +350,17 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="house number">Home Num</label>
                                     <input type="number" id="houseFromSign" class="form-control" />
+                                    <label class="form-label" for="houseNum"><span style="color:red"
+                                            id="validationHouseNum"></span></label>
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
                                     <label class="form-label" for="zipcode">Zip Code</label>
-                                    <input type="number" id="zipFromSign" class="form-control" />
+                                    <input type="number" id="zipFromSign" class="form-control" /><label
+                                        class="form-label" for="houseNum"><span style="color:red"
+                                            id="validationZipCode"></span></label>
 
                                 </div>
                             </div>
@@ -366,7 +380,9 @@
                             <div class="col">
                                 <div class="form-outline">
                                     <label class="form-label" for="phoneNumber">Phone</label>
-                                    <input type="number" id="numberFromSign" class="form-control" />
+                                    <input type="number" id="numberFromSign" class="form-control" /><label
+                                        class="form-label" for="houseNum"><span style="color:red"
+                                            id="validationPhoneNumber"></span></label>
 
                                 </div>
                             </div>
@@ -599,6 +615,11 @@
             <!-- logout -->
             <div id="logout-page" class="d-none">
                 <h1>Logout</h1>
+            </div>
+            <!-- favorite -->
+            <div id="favorite-page" class="d-none">
+                <h1>Favorite</h1>
+                <div id="favoriteDiv" class="d-flex row row-cols-1 row-cols-md-4 g-3"></div>
             </div>
         </div>
         <!-- 404 Page not found Page -->

@@ -1,6 +1,7 @@
 import checkIfAdmin from "../utils/checkIfAdmin.js";
 import initialHomePage from "../pages/homePage.js";
 import startEdit from "../utils/edit.js";
+import { addtofavorite } from "../pages/favoritePics.js";
 let picturesArr;
 let cardsDiv;
 let popupCardDiv;
@@ -55,7 +56,8 @@ const createpopUp = () => {
   for (let picture of picturesArr) {
     card = `card${picture.id}`;
 
-    document.getElementById(card).addEventListener("click", () => {
+    document.getElementById(card).addEventListener("click", nowICreatePopUP);
+    function nowICreatePopUP() {
       btnIdChange = picture.id;
       /* btnDeleteBtn = `picsCardsEditBtn-${picture.id}`; */
 
@@ -77,31 +79,48 @@ const createpopUp = () => {
     <p class="card-text">${picture.price}</p>
        <p class="card-text">Date: ${picture.date}
     <p class="card-text">${picture.description}</p>
+    <button  id="addToFavoriteBtn-${
+      picture.id
+    }" type="button" class="btn btn-danger"> <i class="bi bi-cart"></i>  Add to Favorite</button>
   
-    
+  
     <div class="flex-direction: column">
 
     <a href="#" class="btn btn-dark" id="popupClose"><i class="bi bi-x-circle-fill"></i> close</a>
       ${isAdmin ? adminBtns : ""}`;
         let y = `picsCardsEditBtn-${picture.id}`;
         let x = `picsCardsDeleteBtn-${picture.id}`;
+        let z = `addToFavoriteBtn-${picture.id}`;
+        let btnAddFavoriteId = document.getElementById(z);
         btnDeleteBtn = document.getElementById(x);
         btnEditeBtn = document.getElementById(y);
         console.log(
           "🚀 ~ file: cards.js:57 ~ document.getElementById ~ btnDeleteBtn:",
           btnDeleteBtn
         );
+        btnAddFavoriteId.addEventListener("click", () => {
+          console.log("hrerererer");
+          addtofavorite(picture);
+        });
         return;
       };
       popup();
-      document.getElementById("popupClose").addEventListener("click", () => {
-        cardsDiv.classList.remove("d-none");
-        popupCardDiv.classList.add("d-none");
-      });
+      document.getElementById("popupClose").addEventListener(
+        "click",
+        () => {
+          cardsDiv.classList.remove("d-none");
+          popupCardDiv.classList.add("d-none");
+          /* when i close the popup it ends the edit event */
+          btnEditeBtn.removeEventListener("click", editPics);
+        },
+        { once: true }
+      );
+
       /*  btnDeleteBtn = document.getElementById(`picsCardsEditBtn-${picture.id}`); */
-      btnEditeBtn.addEventListener("click", () => {
+      btnEditeBtn.addEventListener("click", editPics);
+      function editPics() {
         startEdit(picture.id, picturesArr);
-      });
+      }
       if (btnDeleteBtn !== null) {
         console.log(btnDeleteBtn);
         btnDeleteBtn.addEventListener("click", () => {
@@ -116,8 +135,12 @@ const createpopUp = () => {
           popupCardDiv.classList.add("d-none");
           location.reload();
         });
+        /* remove event createpopup */
+        document
+          .getElementById(card)
+          .removeEventListener("click", nowICreatePopUP);
       }
-    });
+    }
   }
 };
 

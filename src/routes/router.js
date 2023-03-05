@@ -7,6 +7,7 @@ const SIGNUPLINK = document.getElementById(PAGES.SIGNUP);
 const LOGINLINK = document.getElementById(PAGES.LOGIN);
 const PROFILELINK = document.getElementById(PAGES.PROFILE);
 const LOGOUTLINK = document.getElementById(PAGES.LOGOUT);
+const FAVORITELINK = document.getElementById(PAGES.FAVORITE);
 const PAGENOTFOUND = document.getElementById(PAGES.NOTFAUND);
 const pageChange = (pagetodisplay) => {
   HOMEPAGELINK.classList.remove("d-block");
@@ -16,6 +17,7 @@ const pageChange = (pagetodisplay) => {
   LOGINLINK.classList.remove("d-block");
   PROFILELINK.classList.remove("d-block");
   LOGOUTLINK.classList.remove("d-block");
+  FAVORITELINK.classList.remove("d-block");
   PAGENOTFOUND.classList.remove("d-block");
 
   HOMEPAGELINK.classList.add("d-none");
@@ -25,6 +27,7 @@ const pageChange = (pagetodisplay) => {
   LOGINLINK.classList.add("d-none");
   PROFILELINK.classList.add("d-none");
   LOGOUTLINK.classList.add("d-none");
+  FAVORITELINK.classList.add("d-none");
   PAGENOTFOUND.classList.add("d-none");
 
   switch (pagetodisplay) {
@@ -52,11 +55,16 @@ const pageChange = (pagetodisplay) => {
       PROFILELINK.classList.remove("d-none");
       PROFILELINK.classList.add("d-block");
       break;
+    case PAGES.FAVORITE:
+      FAVORITELINK.classList.remove("d-none");
+      FAVORITELINK.classList.add("d-block");
+      break;
     case PAGES.LOGOUT:
       HOMEPAGELINK.classList.add("d-block");
       HOMEPAGELINK.classList.remove("d-none");
       document.getElementById("beforeSignIn").classList.remove("d-none");
       document.getElementById("afterSignIn").classList.add("d-none");
+      localStorage.setItem("favorite", "");
       location.reload();
       break;
     default:
