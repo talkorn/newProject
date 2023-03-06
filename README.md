@@ -1,6 +1,6 @@
 Welcome to Tal's Gallery. This is a gallery website designed to showcase different types of artwork. This website is built using JavaScript, HTML and CSS . It is responsive and can be accessed on any device.
 
-Features
+#Features
 
 The website has a navigation bar that allows users to navigate to different sections of the website.
 The homepage buld from 3 tipes of displays a carousel, a list and cards of images that can be clicked on to view them in a larger size.
