@@ -62,7 +62,9 @@ const createpopUp = () => {
       /* btnDeleteBtn = `picsCardsEditBtn-${picture.id}`; */
 
       const popup = () => {
-        adminBtns = `<button type="button" class="btn btn-primary  " id="picsCardsEditBtn-${picture.id}">
+        adminBtns = `
+        <div class="d-grid gap-2 col-6 mx-auto">
+ <button type="button" class="btn btn-primary  " id="picsCardsEditBtn-${picture.id}">
                     <i class="bi bi-pen-fill"></i> Edit
                 </button>
                 <button type="button" class="btn btn-secondary " id="picsCardsDeleteBtn-${picture.id}">
@@ -79,14 +81,17 @@ const createpopUp = () => {
     <p class="card-text">${picture.price}</p>
        <p class="card-text">Date: ${picture.date}
     <p class="card-text">${picture.description}</p>
-    <button  id="addToFavoriteBtn-${
-      picture.id
-    }" type="button" class="btn btn-danger"> <i class="bi bi-cart"></i>  Add to Favorite</button>
+    <div class="d-grid gap-2 col-6 mx-auto m-2">
   
-  
+ <button type="button" class="btn btn-info"><i class="bi bi-currency-dollar"></i> buy now</button>
+    <button  id="addToFavoriteBtn-${picture.id}"
+     type="button" class="btn btn-danger"> <i class="bi bi-cart"></i>  Add to Favorite</button>
+   
+  <a href="#" class="btn btn-dark" id="popupClose"><i class="bi bi-x-circle-fill"></i> close</a>
+  </div>
     <div class="flex-direction: column">
 
-    <a href="#" class="btn btn-dark" id="popupClose"><i class="bi bi-x-circle-fill"></i> close</a>
+    
       ${isAdmin ? adminBtns : ""}`;
         let y = `picsCardsEditBtn-${picture.id}`;
         let x = `picsCardsDeleteBtn-${picture.id}`;
@@ -101,6 +106,8 @@ const createpopUp = () => {
         btnAddFavoriteId.addEventListener("click", () => {
           console.log("hrerererer");
           addtofavorite(picture);
+          cardsDiv.classList.remove("d-none");
+          popupCardDiv.classList.add("d-none");
         });
         return;
       };
