@@ -28,10 +28,6 @@ window.addEventListener("load", () => {
 
 const initialPicturesList = (picturesArrFromHomePage) => {
   picturesArr = picturesArrFromHomePage;
-  console.log(
-    "🚀 ~ file: List.js:36 ~ initialPicturesList ~ picturesArr:",
-    picturesArr
-  );
   listDiv = document.getElementById("home-page-pictures-list");
   isAdmin = checkIfAdmin();
   createList();

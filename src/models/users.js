@@ -1,3 +1,5 @@
+//users is an class to create
+
 class User {
   id;
   firstName;

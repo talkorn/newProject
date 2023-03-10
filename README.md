@@ -1,4 +1,4 @@
-** Welcome to Tal's Gallery **. This is a gallery website designed to showcase different types of artwork. This website is built using JavaScript, HTML and CSS . It is responsive and can be accessed on any device.
+**Welcome to Tal's Gallery**. This is a gallery website designed to showcase different types of artwork. This website is built using JavaScript, HTML and CSS . It is responsive and can be accessed on any device.
 
 # Features
 
