@@ -45,7 +45,7 @@ const emptyAddPic = () => {
   picPriceFromAddPic.value = "";
   picDescrptionFromAddPic.value = "";
 };
-picturesArr = localStorage.getItem("pics");
+
 let btnok = false;
 /* window.addEventListener("load", () => {
    isAdmin = checkIfAdmin();
@@ -94,9 +94,11 @@ const isBtnOk = () => {
     AddPicBotton.disabled = true;
   }
 };
-let nextId = localStorage.getItem("nextId");
-nextId = +nextId;
+
 AddPicBotton.addEventListener("click", () => {
+  let nextId = localStorage.getItem("nextId");
+  console.log("🚀 ~ file: addPic.js:98 ~ nextId:", nextId);
+  nextId = +nextId;
   let newPic = new Pictures(
     nextId++,
     imgUrlFromAddPic.value,
@@ -110,6 +112,7 @@ AddPicBotton.addEventListener("click", () => {
     "🚀 ~ file: addPic.js:45 ~ window.addEventListener ~ picturesArr:",
     picturesArr
   );
+  picturesArr = localStorage.getItem("pics");
   if (!picturesArr) {
     console.log("????????????", picturesArr);
     picturesArr = newPic;

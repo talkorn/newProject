@@ -7,7 +7,7 @@ let adminBtns;
 let isAdmin;
 /* let searchArr = "";
 let change; */
-let originalPropertiesArr = JSON.parse(localStorage.getItem("pics"));
+let originalPicsArr = JSON.parse(localStorage.getItem("pics"));
 window.addEventListener("load", () => {
   document.getElementById("searchInput").addEventListener("input", (ev) => {
     let regex = new RegExp("^" + ev.target.value, "i");
@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
       ev.target.value
     );
 
-    picturesArr = originalPropertiesArr.filter((item) => {
+    picturesArr = originalPicsArr.filter((item) => {
       let reg = regex.test(item.alt);
       return reg;
     });
@@ -34,10 +34,10 @@ const initialPicturesList = (picturesArrFromHomePage) => {
 };
 
 const createItem = (id, imgUrl, alt, credit, price, date) => {
-  adminBtns = ` <button type="button" class="btn btn-primary w-100" id="propertyListEditBtn-${id}">
+  adminBtns = ` <button type="button" class="btn btn-primary w-100" id="picsListEditBtn-${id}">
                     <i class="bi bi-pen-fill"></i> Edit
                 </button>
-                <button type="button" class="btn btn-secondary w-100" id="propertyListDeleteBtn-${id}">
+                <button type="button" class="btn btn-secondary w-100" id="picsListDeleteBtn-${id}">
                     <i class="bi bi-x-circle-fill"></i> Delete
                 </button> `;
   return `
@@ -73,9 +73,9 @@ const createItem = (id, imgUrl, alt, credit, price, date) => {
 const createList = () => {
   let innerList = "";
   //clear event listeners for delete btns
-  clearEventListeners("propertyListDeleteBtn", handleDeleteBtnClick);
+  clearEventListeners("picsListDeleteBtn", handleDeleteBtnClick);
   //clear event listeners for edit btns
-  clearEventListeners("propertyListEditBtn", handleEditBtnClick);
+  clearEventListeners("picsListEditBtn", handleEditBtnClick);
   /* picturesArr = JSON.parse(localStorage.getItem("PICS")); */
   if (!picturesArr) {
     return;
@@ -92,9 +92,9 @@ const createList = () => {
   }
   listDiv.innerHTML = innerList;
 
-  createBtnEventListener("propertyListDeleteBtn", handleDeleteBtnClick);
+  createBtnEventListener("picsListDeleteBtn", handleDeleteBtnClick);
   // add event listeners for edit btns
-  createBtnEventListener("propertyListEditBtn", handleEditBtnClick);
+  createBtnEventListener("picsListEditBtn", handleEditBtnClick);
 };
 
 //Creates event listener for the delete buttons
@@ -126,13 +126,15 @@ const handleDeleteBtnClick = (ev) => {
   id = +id;
   console.log(id);
   picturesArr = picturesArr.filter((item) => item.id !== id);
-  console.log(
-    "🚀 ~ file: List.js:121 ~ handleDeleteBtnClick ~ deleteProperty:",
-    picturesArr
-  );
+
   localStorage.setItem("pics", JSON.stringify(picturesArr));
-  initialHomePage();
-  location.reload();
+  let nextId = localStorage.getItem("nextId");
+  nextId = +nextId;
+  nextId = --nextId;
+  localStorage.setItem("nextId", JSON.stringify(nextId));
+  /* createList(); */
+  initialHomePage(picturesArr);
+  /*  location.reload(); */
 };
 
 const handleEditBtnClick = (ev) => {

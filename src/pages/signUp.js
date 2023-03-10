@@ -82,6 +82,7 @@ const CheckNumber = (theNumber, err) => {
   } else {
     /* error */
     err.innerHTML = NumberFromSignin;
+    err.classList.remove("d-none");
     return (btnsValid = false);
   }
 };
@@ -95,6 +96,7 @@ const CheckString = (theNumber, err) => {
   } else {
     /* error */
     err.innerHTML = stringFromSignin;
+    err.classList.remove("d-none");
     return (btnsValid = false);
   }
 };

@@ -42,6 +42,7 @@ const checkFirstId = () => {
 };
 
 const createCarousel = () => {
+  carouselDiv.innerHTML = "";
   let innerCard = "";
   /* picturesArr = JSON.parse(localStorage.getItem("PICS")); */
   checkFirstId();

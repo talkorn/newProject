@@ -3,6 +3,8 @@ import validEmail from "../validation/emailValidation.js";
 import validPassword from "../validation/passwordValid.js";
 import { pageChange } from "../routes/router.js";
 import PAGES from "../models/pageModel.js";
+import validNumbers from "../validation/validNumbers.js";
+import validString from "../validation/validationString.js";
 
 let firstNameFromProfile = document.getElementById("firstNameFromProfile");
 let lastNameFromProfile = document.getElementById("lastNameFromProfile");
@@ -47,6 +49,81 @@ let emailbtnValid = false;
 let firstNamebtnValid = false;
 let lastNamebtnValid = false;
 let name;
+
+let validationHouseNum = document.getElementById(
+  "validationHouseNumFromProfile"
+);
+let validationZipCode = document.getElementById("validationZipFromProfile");
+let validationPhoneNumber = document.getElementById(
+  "validationPhoneNumberFromProfile"
+);
+let validationState = document.getElementById("validationStatefromProfile");
+let validationCountry = document.getElementById("validationCountryFromProfile");
+let validationCity = document.getElementById("validationCityFromProfile");
+let validationStreet = document.getElementById("vvalidationStreetFromProfile");
+streetFromProfile.addEventListener("input", () => {
+  console.log("houseFromv", streetFromProfile.value);
+  CheckString(streetFromProfile.value, validationStreet);
+});
+cityFromProfile.addEventListener("input", () => {
+  console.log("houseFromSign", cityFromProfile.value);
+  CheckString(cityFromProfile.value, validationCity);
+});
+countryFromProfile.addEventListener("input", () => {
+  console.log("houseFromSign", countryFromProfile.value);
+  CheckString(countryFromSign.value, validationCountry);
+});
+stateFromProfile.addEventListener("input", () => {
+  console.log("houseFromSign", stateFromProfile.value);
+  CheckString(stateFromProfile.value, validationState);
+});
+/* check that all the input are numbers */
+numberFromProfile.addEventListener("input", () => {
+  console.log("houseFromSign", numberFromProfile.value);
+  CheckNumber(numberFromProfile.value, validationPhoneNumber);
+});
+zipFromProfile.addEventListener("input", () => {
+  console.log("houseFromSign", zipFromProfile.value);
+  CheckNumber(zipFromProfile.value, validationZipCode);
+});
+houseFromProfile.addEventListener("input", () => {
+  CheckNumber(houseFromProfile.value, validationHouseNum);
+});
+
+const CheckNumber = (theNumber, err) => {
+  let NumberFromProfile = validNumbers(theNumber);
+  console.log(
+    "🚀 ~ file: profile.js:95 ~ CheckNumber ~ NumberFromProfile:",
+    theNumber,
+    NumberFromProfile
+  );
+
+  if (!NumberFromProfile.length) {
+    err.classList.add("d-none");
+    return (btnsValid = true);
+    /* the button can work */
+  } else {
+    /* error */
+    console.log("im here?");
+    err.innerHTML = NumberFromProfile;
+    err.classList.remove("d-none");
+    return (btnsValid = false);
+  }
+};
+const CheckString = (theNumber, err) => {
+  let stringFromProfile = validString(theNumber);
+
+  if (!stringFromProfile.length) {
+    err.classList.add("d-none");
+    return (btnsValid = true);
+    /* the button can work */
+  } else {
+    /* error */
+    err.innerHTML = stringFromProfile;
+    err.classList.remove("d-none");
+    return (btnsValid = false);
+  }
+};
 
 window.addEventListener("load", () => {
   let users = localStorage.getItem("users");
@@ -97,7 +174,6 @@ lastNameFromProfile.addEventListener("input", () => {
 });
 
 const CheckName = (theName, err) => {
-  console.log("ok");
   name = validName(theName.value);
 
   if (!name.length) {
@@ -153,7 +229,7 @@ const checkEmail = (theEmail, err) => {
   }
 };
 
-/* check if the Passwpord from home signin isgood */
+/* check if the Passwpord isgood */
 PasswordFromProfile.addEventListener("input", () => {
   checkPassword(PasswordFromProfile, validationPasswordFromProfile);
   if (btnsValid) {

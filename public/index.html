@@ -75,7 +75,7 @@
                 <div id="home-page" class="d-block">
 
                     <h1> HOME PAGE</h1>
-                    <h2>TAL'S ART GALLERY REPRESENTS THE FINEST IN MODERN ISRAELI ART</h2>
+                    <h2>TAL'S ART GALLERY REPRESENTS THE FINEST IN MODERN ART</h2>
                     <!-- home page change display buttons -->
                     <button type="button" class="btn btn-primary" id="cardsDisplayButton"><i
                             class="bi bi-view-stacked"></i></button>
@@ -104,11 +104,11 @@
                         </ul>
                     </div>
                     <!-- cards Part -->
+
                     <div id="home-page-pictures-cards" class="d-none row row-cols-1 row-cols-md-4 g-3 ">
                     </div>
                     <!-- listPopUP part -->
                     <div id="cardpopup" class="popup-wrapper d-flex justify-content-center align-items-center">
-
                     </div>
                     <!-- carousel part -->
 
@@ -359,7 +359,7 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="zipcode">Zip Code</label>
                                     <input type="number" id="zipFromSign" class="form-control" /><label
-                                        class="form-label" for="houseNum"><span style="color:red"
+                                        class="form-label" for="zipcode"><span style="color:red"
                                             id="validationZipCode"></span></label>
 
                                 </div>
@@ -381,7 +381,7 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="phoneNumber">Phone</label>
                                     <input type="number" id="numberFromSign" class="form-control" /><label
-                                        class="form-label" for="houseNum"><span style="color:red"
+                                        class="form-label" for="Phone"><span style="color:red"
                                             id="validationPhoneNumber"></span></label>
 
                                 </div>
@@ -500,21 +500,27 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="State">State</label>
-                                        <input type="text" class="form-control" id="stateFromProfile" />
+                                        <input type="text" class="form-control" id="stateFromProfile" /><label
+                                            class="form-label" for="state"><span style="color:red"
+                                                id="validationStatefromProfile"></span></label>
 
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="Country" id="">Country</label>
-                                        <input type="text" class="form-control" id="countryFromProfile">
+                                        <input type="text" class="form-control" id="countryFromProfile"><label
+                                            class="form-label" for="country"><span style="color:red"
+                                                id="validationCountryFromProfile"></span></label>
 
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="City" id="">City</label>
-                                        <input type="text" class="form-control" id="cityFromProfile">
+                                        <input type="text" class="form-control" id="cityFromProfile"><label
+                                            class="form-label" for="city"><span style="color:red"
+                                                id="validationCityFromProfile"></span></label>
 
                                     </div>
                                 </div>
@@ -523,21 +529,27 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="Street" id=""> Street </label>
-                                        <input type="text" id="streetFromProfile" class="form-control" />
+                                        <input type="text" id="streetFromProfile" class="form-control" /><label
+                                            class="form-label" for="street"><span style="color:red"
+                                                id="validationStreetFromProfile"></span></label>
 
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="Home Number">Home Num</label>
-                                        <input type="number" id="houseFromProfile" class="form-control" />
+                                        <input type="number" id="houseFromProfile" class="form-control" /><label
+                                            class="form-label" for="houseNum"><span style="color:red"
+                                                id="validationHouseNumFromProfile"></span></label>
 
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="Zip Code">Zip Code</label>
-                                        <input type="number" id="zipFromProfile" class="form-control" />
+                                        <input type="number" id="zipFromProfile" class="form-control" /><label
+                                            class="form-label" for="zipcode"><span style="color:red"
+                                                id="validationZipFromProfile"></span></label>
 
                                     </div>
                                 </div>
@@ -558,7 +570,9 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="phone">Phone</label>
-                                        <input type="number" id="numberFromProfile" class="form-control" />
+                                        <input type="number" id="numberFromProfile" class="form-control" /><label
+                                            class="form-label" for="houseNum"><span style="color:red"
+                                                id="validationPhoneNumberFromProfile"></span></label>
 
                                     </div>
                                 </div>
@@ -617,13 +631,16 @@
                 <h1>Logout</h1>
             </div>
             <!-- favorite -->
+
             <div id="favorite-page" class="d-none">
                 <h1>Favorite</h1>
                 <div id="favoriteDiv" class="d-flex row row-cols-1 row-cols-md-4 g-3"></div>
             </div>
         </div>
         <!-- 404 Page not found Page -->
-        <div id="page-not-found-page" class="d-none"></div>
+        <div id="page-not-found-page" class="d-none">
+            <h1>404 Page not found Page</h1>
+        </div>
     </main>
     <footer class="border-top pt-3 d-flex justify-content-center">
         Tal Korn Sandor 2023©️

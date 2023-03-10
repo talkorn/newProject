@@ -37,13 +37,14 @@ window.addEventListener("load", () => {
     return;
   }
   picturesArr = JSON.parse(picturesArr);
-  initialHomePage();
+  initialHomePage(picturesArr);
   isAdmin = checkIfAdmin();
   document.getElementById("nav-logout-page").addEventListener("click", () => {
     localStorage.setItem("existUser", "");
   });
 });
-const initialHomePage = (picturesAr) => {
+const initialHomePage = (picturesArr1) => {
+  picturesArr = picturesArr1;
   initialPicturesList(picturesArr);
   initialPicturesCards(picturesArr);
   initialPicturesCarousel(picturesArr);
