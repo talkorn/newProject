@@ -49,7 +49,6 @@ const createItem = (id, imgUrl, alt, credit, price) => {
   <h5 class="card-title">${alt}</h5>
   <div class="card-body">
     <p class="card-text">${credit}.</p>
-    <button type="button" class="btn btn-info"><i class="bi bi-currency-dollar"></i> buy now</button>
   </div>
 </div>  
     `;
